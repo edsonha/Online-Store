@@ -18,3 +18,18 @@ Database Query:
 
 - For specific document: firestore.doc('/users/:userID/cartItems/:cartItemID)
 - For specific collection: firestore.collection('/users/:userID/cartItem')
+
+Firestore will always return us these two objects, even if nothing exists at from the query:
+
+1. Query References - an object that represents the "current" place in the database that we are querying. We use this reference object to tell firestore whether to save
+   data to this place inside of our database or to get data from this location in the database. So it has properties that tell us details about it, or the method to get the Snapshot object which gives us the data we are looking for.
+
+   DocumentReference vs CollectionReference:
+
+   - use documentRef objects to perform our CRUD methods: .set(), .get(), .update() and .delete()
+   - add documents to collections using the collectionRef using .add() method. // collectionRef.add({ value: property })
+   - get snapshotObject from the referenceObject using the .get() method. ie documentRef.get() or collectionRef.get()
+   - documentRef return a documentSnapshot object
+   - collectionRef return a querySnapshot object
+
+2. Query Snapshots
