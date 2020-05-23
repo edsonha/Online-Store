@@ -33,3 +33,4 @@ Firestore will always return us these two objects, even if nothing exists at fro
    - collectionRef return a querySnapshot object
 
 2. Query Snapshots
+   - DocumentSnapshot - object that we get from documentReference object. It allows us to check if a document exists at this query using the .exists property which return a boolean. We can also get the actual properties on the object by calling the .data() method which return a JSON object of the document
