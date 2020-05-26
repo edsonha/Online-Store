@@ -4,6 +4,7 @@ import storage from "redux-persist/lib/storage"; //local storage for window brow
 
 import userReducer from "./user/user.reducer";
 import cartReducer from "./cart/cart.reducer";
+import directoryReducer from "./directory/directory.reducer";
 
 const persistConfig = {
   key: "root",
@@ -11,6 +12,10 @@ const persistConfig = {
   whitelist: ["cart"], //reducer that you want to persist vs blacklist - reducer that you do not want to persist
 };
 
-const rootReducer = combineReducers({ user: userReducer, cart: cartReducer });
+const rootReducer = combineReducers({
+  user: userReducer,
+  cart: cartReducer,
+  directory: directoryReducer,
+});
 
 export default persistReducer(persistConfig, rootReducer);
