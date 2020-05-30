@@ -38,3 +38,11 @@ Firestore will always return us these two objects, even if nothing exists at fro
 ## Sign Up New User
 
 Don't forget to enable the email/password sign-in method in firebase website
+
+## Pushing to Heroku
+
+Things to note:
+
+1. heroku create \${UNIQUE_APP_NAME} --buildpack mars/create-react-app
+2. Add heroku domain in the firebase to authorized to do google sign-in
+3. Erase the logger middleware when in production environment
