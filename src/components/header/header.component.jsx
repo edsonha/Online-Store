@@ -14,13 +14,18 @@ import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import "./header.styles.scss";
+import {
+  HeaderContainer,
+  LogoContainer,
+  OptionsContainer,
+} from "./header.styles";
 
 const Header = ({ currentUser, isCartDropdownHidden }) => (
-  <div className="header">
-    <Link className="logo-container" to="/">
+  <HeaderContainer>
+    <LogoContainer to="/">
       <Logo className="logo" />
-    </Link>
-    <div className="options">
+    </LogoContainer>
+    <OptionsContainer>
       <Link className="option" to="/shop">
         SHOP
       </Link>
@@ -37,9 +42,9 @@ const Header = ({ currentUser, isCartDropdownHidden }) => (
         </Link>
       )}
       <CartIcon />
-    </div>
+    </OptionsContainer>
     {isCartDropdownHidden ? null : <CartDropdown />}
-  </div>
+  </HeaderContainer>
 );
 
 const mapStateToProps = createStructuredSelector({
